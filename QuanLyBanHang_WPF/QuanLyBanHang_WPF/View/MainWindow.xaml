@@ -1,0 +1,95 @@
+﻿<Window x:Class="QuanLyBanHang_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyBanHang_WPF"
+        mc:Ignorable="d"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:uc="clr-namespace:QuanLyBanHang_WPF.UserControlAn"
+     
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowState="Maximized"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        
+        Title="Quản Lý Nhân Viên Vạn Phước Cửu Long" Height="770" Width="1300"
+        DataContext="{StaticResource MainVM}"
+        Name="mainWindow">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction 
+                Command="{Binding SetupQuyenCommand}"  >
+            </i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Thanh ControlBar-->
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}"></uc:ControlBarUC>
+        </Grid>
+
+        <!--Nội dung-->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <materialDesign:Card Grid.Row="0">
+                <Menu
+                    IsMainMenu="True">
+
+                    <MenuItem
+                        Header="_Hệ thống">
+                        <MenuItem 
+                            Header="Cấu hình"/>
+                        <MenuItem 
+                            Header="Thoát"/>
+                    </MenuItem>
+
+                    <MenuItem
+                        Header="_Danh mục">
+                        <MenuItem 
+                            Header="Khách hàng"/>
+                        <MenuItem 
+                            Header="Nhân viên"/>
+                        <MenuItem 
+                            Header="Sản phẩm"/>
+                    </MenuItem>
+
+                    <MenuItem
+                        Header="_Mua bán">
+                        <MenuItem 
+                            Header="Đặt hàng"/>
+                    </MenuItem>
+
+                    <MenuItem
+                        Header="_Báo cáo">
+                        <MenuItem 
+                            Header="Doanh thu"/>
+                        <MenuItem 
+                            Header="Sản phẩm bán chạy nhất"/>
+                        <MenuItem 
+                            Header="Sản phẩm hết hàng"/>
+                    </MenuItem>
+                </Menu>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

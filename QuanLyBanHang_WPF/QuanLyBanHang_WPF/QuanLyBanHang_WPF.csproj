@@ -72,7 +72,18 @@
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
+    <Compile Include="View\NhanVienWindow.xaml.cs">
+      <DependentUpon>NhanVienWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\CauHinhWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DangNhapWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\KhachHangWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,9 +96,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\DangNhapViewModel.cs" />
+    <Compile Include="ViewModel\KhachHangViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\CauHinhWindow.xaml.cs">
+      <DependentUpon>CauHinhWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DangNhapWindow.xaml.cs">
       <DependentUpon>DangNhapWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\KhachHangWindow.xaml.cs">
+      <DependentUpon>KhachHangWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -98,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlAn\ControlBarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NhanVienWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,6 +151,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

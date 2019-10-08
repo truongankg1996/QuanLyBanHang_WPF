@@ -22,7 +22,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         
-        Title="Quản Lý Nhân Viên Vạn Phước Cửu Long" Height="770" Width="1300"
+        Title="Quản Lý Bán Hàng" Height="500" Width="800"
         DataContext="{StaticResource MainVM}"
         Name="mainWindow">
 
@@ -51,45 +51,131 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+            
             <materialDesign:Card Grid.Row="0">
+                <!--Thanh Menu-->
                 <Menu
-                    IsMainMenu="True">
-
-                    <MenuItem
-                        Header="_Hệ thống">
-                        <MenuItem 
-                            Header="Cấu hình"/>
-                        <MenuItem 
-                            Header="Thoát"/>
+                    IsMainMenu="True"
+                    Background="Cyan"
+                    Foreground="Black"
+                    FontWeight="Bold">
+                    <MenuItem Header="_Hệ thống">
+                        <MenuItem Header="Cấu hình">
+                            
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding CauHinhCommand}"
+                                        CommandParameter="{Binding ElementName=mainWindow}">
+                                </i:InvokeCommandAction>
+                            </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </MenuItem>
+                        <MenuItem Header="Thoát">
+                            
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding ThoatCommand}"
+                                        CommandParameter="{Binding ElementName=mainWindow}">
+                                    </i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </MenuItem>
                     </MenuItem>
 
-                    <MenuItem
-                        Header="_Danh mục">
-                        <MenuItem 
-                            Header="Khách hàng"/>
-                        <MenuItem 
-                            Header="Nhân viên"/>
-                        <MenuItem 
-                            Header="Sản phẩm"/>
+                    <MenuItem Header="_Danh mục">
+                        <MenuItem Header="Khách hàng">
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding  KhachHangCommand}"
+                                        CommandParameter="{Binding ElementName=mainWindow}">
+                                    </i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </MenuItem>
+                        <MenuItem Header="Nhân viên">
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding NhanVienCommand}"
+                                        CommandParameter="{Binding ElementName=mainWindow}">
+                                    </i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </MenuItem>
+                        <MenuItem Header="Sản phẩm">
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding SanPhamCommand}"
+                                        CommandParameter="{Binding ElementName=mainWindow}">
+                                    </i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </MenuItem>
                     </MenuItem>
 
-                    <MenuItem
-                        Header="_Mua bán">
-                        <MenuItem 
-                            Header="Đặt hàng"/>
+                    <MenuItem Header="_Mua bán">
+                        <MenuItem Header="Đặt hàng">
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding DatHangCommand}"
+                                        CommandParameter="{Binding ElementName=mainWindow}">
+                                    </i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </MenuItem>
                     </MenuItem>
 
-                    <MenuItem
-                        Header="_Báo cáo">
-                        <MenuItem 
-                            Header="Doanh thu"/>
-                        <MenuItem 
-                            Header="Sản phẩm bán chạy nhất"/>
-                        <MenuItem 
-                            Header="Sản phẩm hết hàng"/>
+                    <MenuItem Header="_Báo cáo">
+                        <MenuItem Header="Doanh thu">
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding DoanhThuCommand}"
+                                        CommandParameter="{Binding ElementName=mainWindow}">
+                                    </i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </MenuItem>
+                        <MenuItem Header="Sản phẩm bán chạy nhất">
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding SPBCCommand}"
+                                        CommandParameter="{Binding ElementName=mainWindow}">
+                                    </i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </MenuItem>
+
+                        <MenuItem Header="Sản phẩm hết hàng">
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding SPHHCommand}"
+                                        CommandParameter="{Binding ElementName=mainWindow}">
+                                    </i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </MenuItem>
                     </MenuItem>
                 </Menu>
             </materialDesign:Card>
+                
+            <materialDesign:Card Grid.Row="1" Margin="0,0,0,418" VerticalAlignment="Bottom">
+                
+            </materialDesign:Card>     
         </Grid>
     </Grid>
 </Window>
